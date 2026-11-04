@@ -169,7 +169,7 @@ export default function StudentAccessGate({ onAccessGranted }) {
                   type="text"
                   value={college}
                   onChange={(e) => setCollege(e.target.value)}
-                  placeholder="যেমন: ঢাকা কলেজ / ভিক্টোরিয়া কলেজ"
+                  placeholder="যেমন: পূবাইল আদর্শ কলেজ"
                   className="w-full bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-slate-900 text-sm pl-10 pr-3.5 py-2.5 rounded-xl outline-none transition-colors"
                 />
               </div>
