@@ -11,6 +11,8 @@ import {
 import { AUTHOR_CREDIT } from '../data/subjectsData';
 
 export default function Navbar({
+  studentUser,
+  onLogout,
   selectedSubject,
   searchQuery,
   setSearchQuery,
@@ -28,7 +30,9 @@ export default function Navbar({
           <div className="flex sm:hidden items-center justify-between w-full text-slate-300">
             <div className="flex items-center gap-1.5 truncate">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
-              <span className="truncate font-medium">অনার্স ৩য় বর্ষ • সেশন: ২০২২-২৩</span>
+              <span className="truncate font-medium">
+                {studentUser ? `স্বাগতম, ${studentUser.name}` : 'অনার্স ৩য় বর্ষ • সেশন: ২০২২-২৩'}
+              </span>
             </div>
             <button
               type="button"
@@ -46,6 +50,19 @@ export default function Navbar({
             <span>জাতীয় বিশ্ববিদ্যালয় • অনার্স ৩য় বর্ষ পরীক্ষা • শিক্ষাবর্ষ: ২০২২-২০২৩ (সমাজকর্ম বিভাগ)</span>
           </div>
           <div className="hidden sm:flex items-center gap-3 text-slate-400">
+            {studentUser && (
+              <div className="flex items-center gap-1.5 bg-emerald-950/70 text-emerald-300 px-2.5 py-0.5 rounded-md border border-emerald-500/30 font-medium">
+                <span>👤 {studentUser.name}</span>
+                <button
+                  type="button"
+                  onClick={onLogout}
+                  className="text-slate-400 hover:text-rose-400 ml-1 text-[10px] cursor-pointer"
+                  title="লগআউট / নাম পরিবর্তন করুন"
+                >
+                  (লগআউট)
+                </button>
+              </div>
+            )}
             <button
               type="button"
               onClick={onOpenRoutineModal}

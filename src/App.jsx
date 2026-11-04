@@ -18,6 +18,8 @@ import SUBJECTS_DATA, { AUTHOR_CREDIT, PORTAL_META, EXAM_ROUTINE } from './data/
 import Navbar from './components/Navbar';
 import SubjectSelector from './components/SubjectSelector';
 import QuestionCard from './components/QuestionCard';
+import StudentAccessGate from './components/StudentAccessGate';
+import { STUDENT_STORAGE_KEY } from './config';
 import PdfExportButton, {
   buildPrintableHtmlDocument,
   printSubjectDocument,
@@ -25,6 +27,15 @@ import PdfExportButton, {
 } from './components/PdfExportButton';
 
 export default function App() {
+  const [studentUser, setStudentUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STUDENT_STORAGE_KEY);
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      return null;
+    }
+  });
+
   const [selectedSubjectId, setSelectedSubjectId] = useState(SUBJECTS_DATA[0]?.id || '232109');
   const [activePart, setActivePart] = useState('ALL'); // 'ALL', 'A', 'B', 'C'
   const [importanceFilter, setImportanceFilter] = useState('ALL'); // 'ALL', '99%', '90%'
@@ -108,6 +119,13 @@ export default function App() {
     >
       {/* Top Navbar */}
       <Navbar
+        studentUser={studentUser}
+        onLogout={() => {
+          try {
+            localStorage.removeItem(STUDENT_STORAGE_KEY);
+          } catch (e) {}
+          setStudentUser(null);
+        }}
         selectedSubject={selectedSubject}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
@@ -116,6 +134,11 @@ export default function App() {
         onOpenMethodologyModal={() => setMethodologyModalOpen(true)}
         onOpenRoutineModal={() => setRoutineModalOpen(true)}
       />
+
+      {/* Student Access Gate Modal (Only if not verified) */}
+      {!studentUser && (
+        <StudentAccessGate onAccessGranted={(user) => setStudentUser(user)} />
+      )}
 
       {/* Main Content Layout */}
       <div className="max-w-7xl w-full mx-auto px-4 py-6 flex-1 flex flex-col lg:flex-row gap-6">
