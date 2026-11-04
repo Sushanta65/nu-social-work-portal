@@ -884,6 +884,7 @@ export const SUBJECTS_DATA = [
     "examTime": "দুপুর ১:০০ টা",
     "examGap": "৩ দিন",
     "examOrder": "৫ম পরীক্ষা",
+    "examIsoDate": "2026-12-09T13:00:00+06:00",
     "academicSession": "শিক্ষাবর্ষ: ২০২২-২০২৩"
   },
   {
@@ -1704,6 +1705,7 @@ export const SUBJECTS_DATA = [
     "examTime": "দুপুর ১:০০ টা",
     "examGap": "৩ দিন",
     "examOrder": "৬ষ্ঠ পরীক্ষা",
+    "examIsoDate": "2026-12-13T13:00:00+06:00",
     "academicSession": "শিক্ষাবর্ষ: ২০২২-২০২৩"
   }
 ];
