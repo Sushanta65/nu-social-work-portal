@@ -79,7 +79,7 @@ export default function SubjectSelector({
           </div>
 
           <div className="p-3 bg-slate-50 dark:bg-slate-950/60 border-t border-slate-200/80 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 text-center">
-            📌 বাকি ৬টি বিষয়ের সাজেশন তৈরি সম্পন্ন হলে স্বয়ংক্রিয়ভাবে এখানে যুক্ত করা হবে।
+            📌 বাকি ৪টি বিষয়ের সাজেশন তৈরি সম্পন্ন হলে স্বয়ংক্রিয়ভাবে এখানে যুক্ত করা হবে।
           </div>
         </div>
       </aside>

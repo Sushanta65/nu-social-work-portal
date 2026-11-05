@@ -63,11 +63,11 @@ export default function App() {
     } catch (e) {}
   }, [isDarkMode]);
 
-  const [selectedSubjectId, setSelectedSubjectId] = useState(SUBJECTS_DATA[0]?.id || '232109');
+  const [selectedSubjectId, setSelectedSubjectId] = useState(SUBJECTS_DATA[0]?.id || '232105');
   const [activePart, setActivePart] = useState('ALL'); // 'ALL', 'A', 'B', 'C', 'BOOKMARKED'
   const [importanceFilter, setImportanceFilter] = useState('ALL'); // 'ALL', '99%', '90%'
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedIds, setExpandedIds] = useState({ '232109-a1': true });
+  const [expandedIds, setExpandedIds] = useState({ '232105-a1': true });
 
   const [bookmarkedIds, setBookmarkedIds] = useState(() => {
     try {
@@ -293,10 +293,16 @@ export default function App() {
         {/* Right Main Content Area */}
         <main className="flex-1 min-w-0 space-y-5 pb-16 lg:pb-8">
           {/* Quick Subject Switcher for Mobile & Tablet */}
-          <div className="lg:hidden bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs flex items-center gap-1.5">
+          <div className="lg:hidden bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs grid grid-cols-2 sm:grid-cols-4 gap-1.5">
             {SUBJECTS_DATA.map((subj) => {
               const active = subj.id === selectedSubjectId;
-              const shortName = subj.code === '232109' ? 'প্রকল্প পরিকল্পনা' : 'জনসংখ্যা ইস্যু';
+              const shortNames = {
+                '232105': 'স্বেচ্ছাসেবিতা ও এনজিও',
+                '232107': 'দরিদ্র সেবা',
+                '232109': 'প্রকল্প পরিকল্পনা',
+                '232111': 'জনসংখ্যা ইস্যু'
+              };
+              const shortName = shortNames[subj.code] || subj.titleBn;
               return (
                 <button
                   key={subj.id}
