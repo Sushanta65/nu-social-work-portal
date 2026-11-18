@@ -24,7 +24,7 @@ export function buildPrintableHtmlDocument(subject) {
           <span class="badge ${q.importance === '99%' ? 'badge-high' : 'badge-mid'}">${q.badge}</span>
         </div>
         <div class="a-body">
-          <strong>উত্তর:</strong> ${typeof q.answer === 'string' ? q.answer : q.answer?.intro || JSON.stringify(q.answer)}
+          <strong>উত্তর:</strong> ${typeof q.answer === 'string' ? q.answer : q.answer?.main || q.answer?.intro || ''}
         </div>
       </div>`
     )
