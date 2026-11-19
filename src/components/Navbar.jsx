@@ -40,9 +40,14 @@ export default function Navbar({
                 <GraduationCap className="w-5 h-5 text-amber-300" />
               </div>
               <div className="min-w-0 flex-1">
-                <h1 className="text-sm sm:text-base font-bold tracking-tight text-white leading-tight truncate">
-                  NU Social Work Portal
-                </h1>
+                <div className="flex items-center gap-2">
+                  <h1 className="text-sm sm:text-base font-bold tracking-tight text-white leading-tight truncate">
+                    NU Social Work Portal
+                  </h1>
+                  <span className="px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold bg-amber-400/15 text-amber-300 border border-amber-400/30 shrink-0">
+                    Susanto
+                  </span>
+                </div>
                 <p className="text-xs text-slate-300 truncate font-medium">
                   {selectedSubject.code}: {selectedSubject.titleBn}
                 </p>

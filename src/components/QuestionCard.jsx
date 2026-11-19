@@ -257,21 +257,21 @@ export default function QuestionCard({
               {typeof item.answer === 'object' &&
                 item.answer?.examples &&
                 item.answer.examples.length > 0 && (
-                  <div className="bg-amber-50/70 dark:bg-amber-950/30 rounded-xl p-4 border border-amber-200/90 dark:border-amber-900/60 space-y-2">
-                    <div className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-amber-900 dark:text-amber-300">
+                  <div className="bg-amber-50/75 dark:bg-amber-950/30 rounded-xl p-4 sm:p-5 border border-amber-200/90 dark:border-amber-900/60 space-y-3">
+                    <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-amber-900 dark:text-amber-300">
                       <Lightbulb className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
-                      <span>বাস্তব উদাহরণ দিয়ে সহজ ধারণা:</span>
+                      <span>বিস্তারিত বাস্তব উদাহরণ (কনসেপ্ট সহজে বোঝার জন্য):</span>
                     </div>
-                    <ul className="space-y-2">
+                    <div className="space-y-2.5">
                       {item.answer.examples.map((ex, idx) => (
-                        <li
+                        <div
                           key={idx}
-                          className="text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-relaxed bg-white/80 dark:bg-slate-900/70 p-3 rounded-lg border border-amber-200/60 dark:border-amber-900/40"
+                          className="text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-7 bg-white/95 dark:bg-slate-900/80 p-3.5 sm:p-4 rounded-xl border border-amber-200/70 dark:border-amber-900/40 shadow-2xs"
                         >
                           {ex}
-                        </li>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 )}
             </div>
@@ -313,16 +313,16 @@ export default function QuestionCard({
 
                   {/* Real-Life Examples Box */}
                   {item.answer.examples && item.answer.examples.length > 0 && (
-                    <div className="p-4 bg-amber-50/70 dark:bg-amber-950/30 rounded-xl border border-amber-200 dark:border-amber-900/60 space-y-2.5">
-                      <div className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-amber-900 dark:text-amber-300">
+                    <div className="p-4 sm:p-5 bg-amber-50/75 dark:bg-amber-950/30 rounded-xl border border-amber-200 dark:border-amber-900/60 space-y-3">
+                      <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-amber-900 dark:text-amber-300">
                         <Lightbulb className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
-                        <span>বাস্তব উদাহরণ দিয়ে সহজ ব্যাখ্যা:</span>
+                        <span>বিস্তারিত বাস্তব উদাহরণ (কনসেপ্ট সহজে বোঝার জন্য):</span>
                       </div>
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         {item.answer.examples.map((ex, idx) => (
                           <div
                             key={idx}
-                            className="p-3 rounded-lg bg-white dark:bg-slate-800/90 border border-amber-200/70 dark:border-amber-900/50 text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-relaxed"
+                            className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-slate-800/90 border border-amber-200/80 dark:border-amber-900/50 text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-7 shadow-2xs"
                           >
                             {ex}
                           </div>
@@ -411,16 +411,16 @@ export default function QuestionCard({
 
                   {/* Real-Life Examples & Case Studies Box */}
                   {item.answer.examples && item.answer.examples.length > 0 && (
-                    <div className="p-4 bg-amber-50/70 dark:bg-amber-950/30 rounded-xl border border-amber-200 dark:border-amber-900/60 space-y-2.5">
-                      <div className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-amber-900 dark:text-amber-300">
+                    <div className="p-4 sm:p-5 bg-amber-50/75 dark:bg-amber-950/30 rounded-xl border border-amber-200 dark:border-amber-900/60 space-y-3">
+                      <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-amber-900 dark:text-amber-300">
                         <Lightbulb className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
-                        <span>বাস্তব উদাহরণ ও কেস স্টাডি (সহজে বোঝার জন্য):</span>
+                        <span>বিস্তারিত বাস্তব উদাহরণ ও গল্প দিয়ে সহজ ব্যাখ্যা:</span>
                       </div>
-                      <div className="space-y-2.5">
+                      <div className="space-y-3">
                         {item.answer.examples.map((ex, idx) => (
                           <div
                             key={idx}
-                            className="p-3.5 rounded-lg bg-white dark:bg-slate-800/90 border border-amber-200/80 dark:border-amber-900/50 text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-relaxed"
+                            className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-slate-800/90 border border-amber-200/80 dark:border-amber-900/50 text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-7 shadow-2xs"
                           >
                             {ex}
                           </div>
