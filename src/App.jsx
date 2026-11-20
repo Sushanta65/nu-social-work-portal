@@ -238,6 +238,7 @@ export default function App() {
       {/* Top Navbar */}
       <Navbar
         selectedSubject={selectedSubject}
+        studentUser={studentUser}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         onOpenMobileDrawer={() => setMobileDrawerOpen(true)}

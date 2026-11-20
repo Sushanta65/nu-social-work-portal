@@ -12,6 +12,7 @@ import {
 
 export default function Navbar({
   selectedSubject,
+  studentUser,
   searchQuery,
   setSearchQuery,
   onOpenMobileDrawer,
@@ -44,9 +45,14 @@ export default function Navbar({
                   <h1 className="text-sm sm:text-base font-bold tracking-tight text-white leading-tight truncate">
                     NU Social Work Portal
                   </h1>
-                  <span className="px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold bg-amber-400/15 text-amber-300 border border-amber-400/30 shrink-0">
-                    Susanto
-                  </span>
+                  {studentUser?.name && (
+                    <span
+                      className="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold bg-amber-400/15 text-amber-300 border border-amber-400/30 shrink-0 max-w-[140px] sm:max-w-[200px] truncate"
+                      title={studentUser.name}
+                    >
+                      Hello, {studentUser.name}
+                    </span>
+                  )}
                 </div>
                 <p className="text-xs text-slate-300 truncate font-medium">
                   {selectedSubject.code}: {selectedSubject.titleBn}
