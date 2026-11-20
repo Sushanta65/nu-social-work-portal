@@ -238,7 +238,6 @@ export default function App() {
       {/* Top Navbar */}
       <Navbar
         selectedSubject={selectedSubject}
-        studentUser={studentUser}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         onOpenMobileDrawer={() => setMobileDrawerOpen(true)}
@@ -270,6 +269,32 @@ export default function App() {
 
         {/* Right Main Content Area */}
         <main className="flex-1 min-w-0 space-y-4 pb-16 lg:pb-8">
+          {/* Student Greeting Bar */}
+          {studentUser?.name && (
+            <div className="flex items-center justify-between gap-3 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl bg-gradient-to-r from-white via-blue-50/40 to-indigo-50/50 dark:from-slate-900 dark:via-slate-900 dark:to-blue-950/30 border border-slate-200/90 dark:border-slate-800 shadow-2xs">
+              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-[#1e40af] to-indigo-600 text-white font-extrabold text-sm flex items-center justify-center shadow-xs ring-2 ring-blue-100 dark:ring-blue-900/50 shrink-0 uppercase">
+                  {studentUser.name.trim().charAt(0)}
+                </div>
+                <div className="min-w-0">
+                  <p className="text-sm sm:text-[15px] font-bold text-slate-800 dark:text-slate-100 leading-snug truncate">
+                    <span className="text-slate-500 dark:text-slate-400 font-medium">Hello, </span>
+                    <span className="text-[#1e40af] dark:text-blue-400">{studentUser.name}</span>
+                  </p>
+                  {studentUser.college && studentUser.college !== 'উল্লেখ নেই' && (
+                    <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 truncate">
+                      {studentUser.college}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shrink-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>শুভ প্রস্তুতি</span>
+              </span>
+            </div>
+          )}
+
           {/* Quick Subject Switcher for Mobile & Tablet */}
           <div className="lg:hidden bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs grid grid-cols-2 sm:grid-cols-3 gap-1.5">
             {SUBJECTS_DATA.map((subj) => {
